@@ -1,7 +1,17 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Instabug from 'instabug-reactnative';
+import { INSTABUG_TOKEN } from './config'
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    if (Platform.OS === 'ios') {
+      Instabug.startWithToken(INSTABUG_TOKEN, Instabug.invocationEvent.shake);
+    }
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
