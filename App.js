@@ -7,7 +7,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     if (Platform.OS === 'ios') {
-      Instabug.startWithToken(INSTABUG_TOKEN, Instabug.invocationEvent.shake);
+      Instabug.startWithToken(INSTABUG_TOKEN, [Instabug.invocationEvent.shake]);
     }
   }
 
